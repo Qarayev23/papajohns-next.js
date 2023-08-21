@@ -1,0 +1,19 @@
+{
+    "pizzas": [
+        {
+            "id": 1,
+            "name": "Amerikan Hot",
+            "img": "https://www.papajohns.az/uploads/images/pizza/american-hot.png",
+            "ingredients": [
+                "Pizza Sous",
+                "Mozzarella pendiri",
+                "Pepperoni və Halapeno Bibəri"
+            ],
+            "price": {
+                "small": "9",
+                "middle": "14",
+                "big": "19"
+            }
+        }
+    ]
+}

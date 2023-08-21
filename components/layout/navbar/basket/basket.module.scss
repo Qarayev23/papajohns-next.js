@@ -1,0 +1,33 @@
+@import '../../../../assets/style/utilities/index.scss';
+
+.basket {
+    margin-top: rem(6);
+    text-align: center;
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__count {
+        display: inline-block;
+        position: absolute;
+        top: rem(-10);
+        right: rem(-9);
+        width: rem(22);
+        height: rem(22);
+        border-radius: 50%;
+        border: rem(2) solid #ffffff;
+        background: $red;
+        color: #ffffff;
+        @include font(14, 400, 18);
+        text-align: center;
+    }
+
+    &__price{
+        @include font(15, 700);
+    }
+
+    &__icon{
+        font-size: rem(26);
+    }
+}

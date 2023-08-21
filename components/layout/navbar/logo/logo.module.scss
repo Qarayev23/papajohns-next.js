@@ -1,0 +1,27 @@
+@import '../../../../assets/style/utilities/index.scss';
+@import '../../../../assets/style/utilities/variables.scss';
+
+.logo {
+    @include breakpoint-min($desktop-sm-width) {
+        position: absolute;
+        top: rem(40);
+        left: rem(50);
+    }
+
+    a {
+        width: rem(250);
+        height: rem(105);
+        position: relative;
+
+        img {
+            object-fit: contain;
+        }
+    }
+
+    @include breakpoint-max($desktop-sm-width) {
+        a {
+            width: rem(90);
+            height: rem(39);
+        }
+    }
+}
