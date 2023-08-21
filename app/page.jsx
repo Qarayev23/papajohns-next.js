@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Products from '@/components/products/products';
 import styles from './page.module.css'
 import axios from 'axios'
 
@@ -15,7 +15,7 @@ export default async function Home() {
    const {data} = await getData()
   return (
     <main className={styles.main}>
-      asd
+      <Products />
       {data.map(item => {
         return <div>
           {item.name}

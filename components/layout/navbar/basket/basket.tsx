@@ -1,7 +1,6 @@
 import { BiSolidBasket } from "react-icons/bi";
 import styles from './basket.module.scss'
 
-
 const Basket = () => {
     return (
         <button className={styles.basket}>

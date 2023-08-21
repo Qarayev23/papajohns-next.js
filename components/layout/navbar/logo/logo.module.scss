@@ -1,5 +1,4 @@
 @import '../../../../assets/style/utilities/index.scss';
-@import '../../../../assets/style/utilities/variables.scss';
 
 .logo {
     @include breakpoint-min($desktop-sm-width) {

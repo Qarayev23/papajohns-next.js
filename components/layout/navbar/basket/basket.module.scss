@@ -23,11 +23,11 @@
         text-align: center;
     }
 
-    &__price{
+    &__price {
         @include font(15, 700);
     }
 
-    &__icon{
+    &__icon {
         font-size: rem(26);
     }
 }
