@@ -1,0 +1,92 @@
+@import '../../../assets/style/utilities/index.scss';
+
+.footer {
+    background: $red;
+    margin-top: auto;
+
+    &__content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: rem(18) 0;
+    }
+
+    &__list {
+        display: flex;
+        gap: rem(20);
+        padding: rem(20) 0;
+        border-right: rem(2) solid white;
+    }
+
+    &__link {
+        color: white;
+        font-weight: bold;
+        transition: opacity 0.5s;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    &__item {
+        &:last-of-type {
+            padding-right: rem(20);
+        }
+    }
+
+    &__photos {
+        width: rem(280);
+        height: rem(60);
+        position: relative;
+    }
+
+    &__icons {
+        display: flex;
+        gap: rem(20);
+        border-left: rem(2) solid white;
+        padding: rem(15) 0 rem(15) rem(20);
+
+        &__link {
+            color: white;
+            font-size: rem(22);
+            transition: opacity 0.5s;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    @include breakpoint-max($desktop-width) {
+        &__content {
+            flex-direction: column;
+            padding: rem(15) 0;
+        }
+
+        &__photos {
+            margin: rem(20) 0;
+        }
+
+        &__list {
+            flex-direction: column;
+            gap: rem(15);
+            border: none;
+            padding: 0;
+        }
+
+        &__link {
+            text-align: center;
+        }
+
+        &__item {
+            &:last-of-type {
+                padding: 0;
+            }
+        }
+
+        &__icons {
+            border: none;
+            padding: 0;
+        }
+    }
+}

@@ -11,3 +11,16 @@
         max-width: calc(100% - #{rem(15)} * 2);
     }
 }
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(12) rem(20);
+    background: $green;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    border-radius: rem(4);
+    flex-shrink: 0;
+}

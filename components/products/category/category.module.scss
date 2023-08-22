@@ -1,0 +1,37 @@
+@import '../../../assets/style/utilities/index.scss';
+
+.products {
+    &__nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(20);
+        background: $gray;
+        padding: rem(15);
+        margin-bottom: rem(20);
+
+        &__link {
+            @include font(20, 700);
+            color: $black;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $red;
+            }
+
+            &.active {
+                color: $red;
+            }
+        }
+
+        @include breakpoint-max($desktop-sm-width) {
+            &__link {
+                font-size: rem(16);
+            }
+        }
+
+        @include breakpoint-max (600) {
+            padding: rem(14) rem(5);
+            gap: rem(10);
+        }
+    }
+}

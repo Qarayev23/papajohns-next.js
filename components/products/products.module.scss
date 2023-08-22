@@ -1,0 +1,29 @@
+@import '../../assets/style/utilities/index.scss';
+
+.products {
+    margin: rem(30) 0;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-gap: rem(40) rem(25);
+    }
+
+    @include breakpoint-max($desktop-width) {
+        &__list {
+            grid-template-columns: repeat(3, auto);
+        }
+    }
+
+    @include breakpoint-max($desktop-sm-width) {
+        &__list {
+            grid-template-columns: repeat(2, auto);
+        }
+    }
+
+    @include breakpoint-max($mobile-width) {
+        &__list {
+            grid-template-columns: auto;
+        }
+    }
+}

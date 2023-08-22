@@ -1,0 +1,25 @@
+@import '../../../assets/style/utilities/index.scss';
+
+.product {
+    &__img {
+        height: rem(220);
+        width: 100%;
+        position: relative;
+    }
+
+    &__caption {
+        display: flex;
+        justify-content: space-between;
+        gap: rem(10);
+        margin-bottom: rem(10);
+        margin-top: rem(7);
+    }
+
+    &__title {
+        @include font(19, 700);
+    }
+
+    &__ingredients {
+        @include font(14, 400, 18);
+    }
+}

@@ -15,7 +15,7 @@
         }
 
         &__link {
-            color: black;
+            color: $black;
             font-size: rem(20);
             transition: opacity 0.3s;
 
@@ -33,6 +33,7 @@
             .register {
                 @include font(20, 700);
                 transition: opacity 0.3s;
+                color: $black;
 
                 &:hover {
                     opacity: 0.5;
@@ -56,6 +57,7 @@
                 span {
                     @include font(20, 700);
                     transition: opacity 0.3s;
+                    color: $black;
                 }
 
                 &__icon {
@@ -78,10 +80,11 @@
             flex-direction: column;
             align-items: center;
             gap: rem(5);
-            color: black;
+            color: $black;
 
             span {
                 @include font(15, 700);
+                color: $black;
             }
 
             &__icon {
@@ -97,6 +100,7 @@
 
             span {
                 @include font(15, 700);
+                color: $black;
             }
         }
     }
@@ -108,7 +112,7 @@
         &__list {
             display: flex;
             flex-wrap: wrap;
-            margin-left: rem(280);
+            margin-left: rem(300);
             font-weight: bold;
             gap: rem(10) rem(20);
         }
@@ -149,6 +153,15 @@
 
             &__link {
                 font-size: rem(16);
+            }
+        }
+    }
+
+    @include breakpoint-max($tablet-width) {
+        .nav {
+            &__list {
+                gap: rem(10);
+
             }
         }
     }

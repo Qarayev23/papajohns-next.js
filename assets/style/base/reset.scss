@@ -20,8 +20,11 @@ html {
 }
 
 body {
-  color: $dark;
+  color: $black;
   line-height: initial;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 @media screen and (min-width: 1441px) {

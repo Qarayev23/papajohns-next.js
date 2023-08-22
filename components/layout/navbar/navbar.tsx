@@ -1,3 +1,5 @@
+'use client'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './navbar.module.scss'
 import { FaUserAlt } from "react-icons/fa";
@@ -5,8 +7,11 @@ import { AiFillCaretDown } from "react-icons/ai";
 import Logo from './logo/logo';
 import Basket from './basket/basket';
 import Image from 'next/image';
+import { navLinks } from '@/constants';
 
 const Navbar = () => {
+  const pathname = usePathname()
+
   return (
     <header className={styles.header}>
       <div className="container">
@@ -47,33 +52,14 @@ const Navbar = () => {
       <nav className={styles.nav}>
         <div className="container">
           <ul className={styles.nav__list}>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>KAMPANİYALAR</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>PAPADİAS</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>PİZZA</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>QƏLYANALTI</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>SALAT</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>PASTA</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>İÇKİ</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>DESERT</Link>
-            </li>
-            <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>SOUS</Link>
-            </li>
+            {navLinks.map(item => {
+              const isActive = pathname.startsWith(item.path)
+              return (
+                <li className={styles.nav__item}>
+                  <Link href={item.path} className={isActive ? `${styles.nav__link} active` : styles.nav__link}>{item.label}</Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </nav>
