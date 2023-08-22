@@ -40,22 +40,22 @@ export const navLinks = [
 export const categoryLinks = [
     {
         label: "Hamısı",
-        path: "/"
+        path: "all"
     },
     {
         label: "Toyuqlu",
-        path: "/"
+        path: "chicken"
     },
     {
         label: "Ət ilə",
-        path: "/"
+        path: "meat"
     },
     {
         label: "Vegetarian",
-        path: "/"
+        path: "vegetarian"
     },
     {
         label: "Acılı",
-        path: "/"
+        path: "spicy"
     }
 ]

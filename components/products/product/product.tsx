@@ -2,92 +2,44 @@
 import Image from 'next/image'
 import styles from "./product.module.scss"
 import Button from '@/components/button/button'
-import ProductDetailModal from '@/components/modal/productDetailModal'
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
-const Product = () => {
-    const [modalShow, setModalShow] = useState(false)
+interface Root {
+    id: number
+    name: string
+    img: string
+    ingredients: string[]
+    price: Price
+}
+
+interface Price {
+    small: number
+    middle: number
+    big: number
+}
+
+const Product = ({ data }: { data: Root }) => {
+    const searchParams = useSearchParams()
+    useEffect(() => {
+        
+       console.log("asd");
+       
+    }, [searchParams])
 
     return (
-        <>
-            <div className={styles.product__col}>
-                <div className={styles.product__img}>
-                    <Image src="/img/hot_and_spaysi.jpg" alt="Hot and Spaysi" fill />
-                </div>
-                <div className={styles.product__caption}>
-                    <h4 className={styles.product__title}>Hot and Spaysi</h4>
-                    <Button text="Bunu seç"/>
-                </div>
-                <p className={styles.product__ingredients}>
-                    Mal Əti, Pomidor, Yaşıl Bibər, Halapenyo Bibəri, Mozzarella Pendiri
-                </p>
+        <div className={styles.product__col}>
+            <div className={styles.product__img}>
+                <Image src={data.img} fill alt={data.name} />
             </div>
-            <div className={styles.product__col}>
-                <div className={styles.product__img}>
-                    <Image src="/img/hot_and_spaysi.jpg" alt="Hot and Spaysi" fill />
-                </div>
-                <div className={styles.product__caption}>
-                    <h4 className={styles.product__title}>Hot and Spaysi</h4>
-                    <button className="button">Bunu seç</button>
-                </div>
-                <p className={styles.product__ingredients}>
-                    Mal Əti, Pomidor, Yaşıl Bibər, Halapenyo Bibəri, Mozzarella Pendiri
-                </p>
+            <div className={styles.product__caption}>
+                <h4 className={styles.product__title}>{data.name}</h4>
+                <Button text="Bunu seç" />
             </div>
-            <div className={styles.product__col}>
-                <div className={styles.product__img}>
-                    <Image src="/img/hot_and_spaysi.jpg" alt="Hot and Spaysi" fill />
-                </div>
-                <div className={styles.product__caption}>
-                    <h4 className={styles.product__title}>Hot and Spaysi</h4>
-                    <button className="button">Bunu seç</button>
-                </div>
-                <p className={styles.product__ingredients}>
-                    Mal Əti, Pomidor, Yaşıl Bibər, Halapenyo Bibəri, Mozzarella Pendiri
-                </p>
-            </div>
-            <div className={styles.product__col}>
-                <div className={styles.product__img}>
-                    <Image src="/img/hot_and_spaysi.jpg" alt="Hot and Spaysi" fill />
-                </div>
-                <div className={styles.product__caption}>
-                    <h4 className={styles.product__title}>Hot and Spaysi</h4>
-                    <button className="button">Bunu seç</button>
-                </div>
-                <p className={styles.product__ingredients}>
-                    Mal Əti, Pomidor, Yaşıl Bibər, Halapenyo Bibəri, Mozzarella Pendiri
-                </p>
-            </div>
-            <div className={styles.product__col}>
-                <div className={styles.product__img}>
-                    <Image src="/img/hot_and_spaysi.jpg" alt="Hot and Spaysi" fill />
-                </div>
-                <div className={styles.product__caption}>
-                    <h4 className={styles.product__title}>Hot and Spaysi</h4>
-                    <button className="button">Bunu seç</button>
-                </div>
-                <p className={styles.product__ingredients}>
-                    Mal Əti, Pomidor, Yaşıl Bibər, Halapenyo Bibəri, Mozzarella Pendiri
-                </p>
-            </div>
-            <div className={styles.product__col}>
-                <div className={styles.product__img}>
-                    <Image src="/img/hot_and_spaysi.jpg" alt="Hot and Spaysi" fill />
-                </div>
-                <div className={styles.product__caption}>
-                    <h4 className={styles.product__title}>Hot and Spaysi</h4>
-                    <button className="button">Bunu seç</button>
-                </div>
-                <p className={styles.product__ingredients}>
-                    Mal Əti, Pomidor, Yaşıl Bibər, Halapenyo Bibəri, Mozzarella Pendiri
-                </p>
-            </div>
-
-            <ProductDetailModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-            />
-        </>
+            <p className={styles.product__ingredients}>
+                {data.ingredients}
+            </p>
+        </div>
     )
 }
 

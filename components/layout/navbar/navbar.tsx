@@ -1,5 +1,3 @@
-'use client'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './navbar.module.scss'
 import { FaUserAlt } from "react-icons/fa";
@@ -10,8 +8,6 @@ import Image from 'next/image';
 import { navLinks } from '@/constants';
 
 const Navbar = () => {
-  const pathname = usePathname()
-
   return (
     <header className={styles.header}>
       <div className="container">
@@ -53,10 +49,9 @@ const Navbar = () => {
         <div className="container">
           <ul className={styles.nav__list}>
             {navLinks.map(item => {
-              const isActive = pathname.startsWith(item.path)
               return (
                 <li className={styles.nav__item}>
-                  <Link href={item.path} className={isActive ? `${styles.nav__link} active` : styles.nav__link}>{item.label}</Link>
+                  <Link href={item.path} className={styles.nav__link}>{item.label}</Link>
                 </li>
               )
             })}
