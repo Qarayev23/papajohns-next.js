@@ -6,7 +6,7 @@ import { FaFacebookF, FaInstagram, FaTripadvisor, FaTwitter } from "react-icons/
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <div className="container">
+            <div className="g-container">
                 <div className={styles.footer__content}>
                     <ul className={styles.footer__list}>
                         <li className={styles.footer__item}>

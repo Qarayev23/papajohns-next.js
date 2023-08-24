@@ -1,4 +1,4 @@
-.container {
+.g-container {
     width: 100%;
     margin: 0 auto;
     max-width: calc(100% - #{rem(45)} * 2);
@@ -12,7 +12,7 @@
     }
 }
 
-.button {
+.g-button {
     display: flex;
     align-items: center;
     justify-content: center;

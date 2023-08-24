@@ -76,7 +76,7 @@
             "id": 7,
             "name": "Acılı Vegetarian",
             "img": "https://www.papajohns.az/uploads/images/pizza/vegetarian-acili.png",
-            "category": "vegeterian",
+            "category": "vegetarian",
             "ingredients": "Halapeno Bibəri, Pomidor, Göbələk, Qara Zeytun, Yaşıl Bibər və Mozzarella Pendiri",
             "price": {
                 "small": 9,
@@ -88,7 +88,7 @@
             "id": 8,
             "name": "Yunan",
             "img": "https://www.papajohns.az/uploads/images/yunan.jpg",
-            "category": "vegeterian",
+            "category": "vegetarian",
             "ingredients": "Pomidor, Zeytun, Feta Pendiri, Oreqano, Acılı Bibər, Mozzarella Pendiri",
             "price": {
                 "small": 8,
@@ -100,7 +100,7 @@
             "id": 9,
             "name": "Margarita",
             "img": "https://www.papajohns.az/uploads/images/margarita.jpg",
-            "category": "meat",
+            "category": "vegetarian",
             "ingredients": "Pomidor, Oreqano, Mozzarella Pendiri",
             "price": {
                 "small": 8,
@@ -134,6 +134,150 @@
         },
         {
             "id": 12,
+            "name": "Acılı Çiken Ranç",
+            "img": "https://www.papajohns.az/uploads/images/pizza/Spicy-chicken-ranch.png",
+            "category": "spicy",
+            "ingredients": "Ranç Sousu, Toyuq Əti, Göbələklər,  Halapeno Bibəri, Təzə Doğranmış Pomidorlar və Mozzarella Pendiri",
+            "price": {
+                "small": 11,
+                "middle": 16,
+                "big": 22
+            }
+        },
+        {
+            "id": 13,
+            "name": "Çiken Ranç",
+            "img": "https://www.papajohns.az/uploads/images/chicken_ranch.jpg",
+            "category": "chicken",
+            "ingredients": "Qril Toyuq, Pomidor, Ranç Sousu, Mozzarella Pendiri",
+            "price": {
+                "small": 10,
+                "middle": 16,
+                "big": 21
+            }
+        },
+        {
+            "id": 14,
+            "name": "Çiken Barbekyu",
+            "img": "https://www.papajohns.az/uploads/images/chicken_barbekyu.jpg",
+            "category": "chicken",
+            "ingredients": "Qril Toyuq, Göbələk, Barbekyu Sousu, Mozzarella Pendiri",
+            "price": {
+                "small": 10,
+                "middle": 16,
+                "big": 22
+            }
+        },
+        {
+            "id": 15,
+            "name": "Çiken Çizburger",
+            "img": "https://www.papajohns.az/uploads/images/chicken_cheeseburger.jpg",
+            "category": "chicken",
+            "ingredients": "Qril Toyuq, Turşu Xiyar, Pomidor, Mozzarella Pendiri, Sous",
+            "price": {
+                "small": 12,
+                "middle": 19,
+                "big": 23
+            }
+        },
+        {
+            "id": 16,
+            "name": "Super Papa",
+            "img": "https://www.papajohns.az/uploads/images/super-papa.jpg",
+            "category": "meat",
+            "ingredients": "Pepperoni, İtalyan Sosisi, Mal Ətindən Vetçina, Göbələk, Yaşıl Bibər, Qara Zeytun, Mozzarella Pendiri",
+            "price": {
+                "small": 12,
+                "middle": 18,
+                "big": 23
+            }
+        },
+        {
+            "id": 17,
+            "name": "Qarışıq Ət",
+            "img": "https://www.papajohns.az/uploads/images/qarishiq_et.jpg",
+            "category": "meat",
+            "ingredients": "Pepperoni, İtalyan Sosisi, Mal Əti, Mal Ətindən Vetçina, Mozzarella Pendiri",
+            "price": {
+                "small": 13,
+                "middle": 21,
+                "big": 25
+            }
+        },
+        {
+            "id": 18,
+            "name": "Vestern Barbekyu",
+            "img": "https://www.papajohns.az/uploads/images/vestern_barbekyu.jpg",
+            "category": "meat",
+            "ingredients": "Mal Əti, Göbələk, Barbekyu Sousu, Mozzarella Pendiri",
+            "price": {
+                "small": 12,
+                "middle": 18,
+                "big": 23
+            }
+        },
+        {
+            "id": 19,
+            "name": "Acılı Vegetarian",
+            "img": "https://www.papajohns.az/uploads/images/pizza/vegetarian-acili.png",
+            "category": "vegetarian",
+            "ingredients": "Halapeno Bibəri, Pomidor, Göbələk, Qara Zeytun, Yaşıl Bibər və Mozzarella Pendiri",
+            "price": {
+                "small": 9,
+                "middle": 13,
+                "big": 18
+            }
+        },
+        {
+            "id": 20,
+            "name": "Yunan",
+            "img": "https://www.papajohns.az/uploads/images/yunan.jpg",
+            "category": "vegetarian",
+            "ingredients": "Pomidor, Zeytun, Feta Pendiri, Oreqano, Acılı Bibər, Mozzarella Pendiri",
+            "price": {
+                "small": 8,
+                "middle": 13,
+                "big": 16
+            }
+        },
+        {
+            "id": 21,
+            "name": "Margarita",
+            "img": "https://www.papajohns.az/uploads/images/margarita.jpg",
+            "category": "vegetarian",
+            "ingredients": "Pomidor, Oreqano, Mozzarella Pendiri",
+            "price": {
+                "small": 8,
+                "middle": 13,
+                "big": 16
+            }
+        },
+        {
+            "id": 22,
+            "name": "Qril Çiken Parmezan",
+            "img": "https://www.papajohns.az/uploads/images/pizza/Grill-%C3%87iken-Parmezan.png",
+            "category": "spicy",
+            "ingredients": "Sarımsaqlı Parmezan sousu, Qril Toyuğu, Vetçina, Pomidor, Mozzarella Pendiri, Halapeno Bibəri",
+            "price": {
+                "small": 11,
+                "middle": 17,
+                "big": 21
+            }
+        },
+        {
+            "id": 23,
+            "name": "Amerikan Hot",
+            "img": "https://www.papajohns.az/uploads/images/pizza/american-hot.png",
+            "category": "spicy",
+            "ingredients": "Pizza Sous, Mozzarella pendiri, Pepperoni və Halapeno Bibəri",
+            "price": {
+                "small": 9,
+                "middle": 14,
+                "big": 19
+            }
+        },
+        {
+            "id": 24,
             "name": "Acılı Çiken Ranç",
             "img": "https://www.papajohns.az/uploads/images/pizza/Spicy-chicken-ranch.png",
             "category": "spicy",

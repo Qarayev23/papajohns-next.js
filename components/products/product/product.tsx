@@ -1,45 +1,36 @@
 'use client'
+
 import Image from 'next/image'
 import styles from "./product.module.scss"
 import Button from '@/components/button/button'
-import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { PizzasProps } from '@/types'
+import { useState } from 'react'
+import ProductDetailModal from '@/components/modal/productDetailModal'
 
-interface Root {
-    id: number
-    name: string
-    img: string
-    ingredients: string[]
-    price: Price
-}
+const Product = ({ data }: { data: PizzasProps }) => {
 
-interface Price {
-    small: number
-    middle: number
-    big: number
-}
-
-const Product = ({ data }: { data: Root }) => {
-    const searchParams = useSearchParams()
-    useEffect(() => {
-        
-       console.log("asd");
-       
-    }, [searchParams])
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className={styles.product__col}>
-            <div className={styles.product__img}>
-                <Image src={data.img} fill alt={data.name} />
+        <>
+            <div className={styles.product__col}>
+                <div className={styles.product__img}>
+                    <Image src={data.img} fill alt={data.name} />
+                </div>
+                <div className={styles.product__caption}>
+                    <h4 className={styles.product__title}>{data.name}</h4>
+                    <Button text="Bunu seç" 
+                    handleClick={
+                        () => setIsOpen(true)
+                    } />
+                </div>
+                <p className={styles.product__ingredients}>
+                    {data.ingredients}
+                </p>
             </div>
-            <div className={styles.product__caption}>
-                <h4 className={styles.product__title}>{data.name}</h4>
-                <Button text="Bunu seç" />
-            </div>
-            <p className={styles.product__ingredients}>
-                {data.ingredients}
-            </p>
-        </div>
+
+            <ProductDetailModal isOpen={isOpen} closeModal={() => setIsOpen(false)} data={data} />
+        </>
     )
 }
 

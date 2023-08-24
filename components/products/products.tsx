@@ -1,43 +1,25 @@
-import axios from "axios"
+import { PizzasProps, Root } from "@/types"
 import Category from "./category/category"
 import Product from "./product/product"
 import styles from "./products.module.scss"
-interface Root {
-    id: number
-    name: string
-    img: string
-    ingredients: string[]
-    price: Price
-}
 
-interface Price {
-    small: number
-    middle: number
-    big: number
-}
-
-async function getData() {
-    try {
-        const {data} = await axios.get("http://localhost:3001/pizzas")
-        return data
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-const Products = async () => {
-    const data = await getData()
-
+const Products = async ({ data }: { data: Root }) => {
     return (
         <>
             <section className={styles.products}>
-                <div className="container">
+                <div className="g-container">
                     <Category />
-                    <div className={styles.products__list}>
-                        {data.map((item: any) => (
-                            <Product data={item} key={item.id} />
-                        ))}
-                    </div>
+                    {
+                        data.length > 0 ? (
+                            <div className={styles.products__list}>
+                                {data.map((item: PizzasProps) => (
+                                    <Product data={item} key={item.id} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className={styles.products__empty}>Məhsul tapılmadı.</div>
+                        )
+                    }
                 </div>
             </section>
         </>

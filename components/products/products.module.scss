@@ -9,6 +9,12 @@
         grid-gap: rem(40) rem(25);
     }
 
+    &__empty{
+        text-align: center;
+        @include font(20, 700);
+        color: $red;
+    }
+
     @include breakpoint-max($desktop-width) {
         &__list {
             grid-template-columns: repeat(3, auto);

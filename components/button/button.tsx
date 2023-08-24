@@ -1,10 +1,14 @@
-interface props {
-    text: string;
-}
+import { ButtonProps } from "@/types"
 
-const Button = ({ text }: props) => {
+const Button = ({ text, handleClick }: ButtonProps) => {
     return (
-        <button className="button">{text}</button>
+        <button
+            type="button"
+            className="g-button"
+            onClick={handleClick}
+        >
+            {text}
+        </button>
     )
 }
 

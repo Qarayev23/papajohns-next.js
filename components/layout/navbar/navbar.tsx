@@ -10,7 +10,7 @@ import { navLinks } from '@/constants';
 const Navbar = () => {
   return (
     <header className={styles.header}>
-      <div className="container">
+      <div className="g-container">
         <div className={styles.header__top}>
           <Logo />
           <ul className={styles.header__top__left}>
@@ -46,7 +46,7 @@ const Navbar = () => {
         </div>
       </div>
       <nav className={styles.nav}>
-        <div className="container">
+        <div className="g-container">
           <ul className={styles.nav__list}>
             {navLinks.map(item => {
               return (
