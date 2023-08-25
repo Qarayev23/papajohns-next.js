@@ -39,3 +39,9 @@ export interface ButtonProps {
   text: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface ProductDetailProps {
+  isOpen: boolean;
+  closeModal: () => void;
+  data: PizzasProps;
+}

@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import Navbar from '@/components/layout/navbar/navbar'
 import Footer from '@/components/layout/footer/footer'
+import { Providers } from '@/redux/provider'
+import { PersistProvider } from '@/redux/persistProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        <Providers>
+          <PersistProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </PersistProvider>
+        </Providers>
       </body>
     </html>
   )

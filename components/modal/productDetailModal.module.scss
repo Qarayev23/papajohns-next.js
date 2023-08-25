@@ -1,0 +1,98 @@
+@import '@/assets/style/utilities/index.scss';
+
+.card {
+    background: white;
+    padding: rem(40);
+    margin: 0 rem(10);
+    position: relative;
+    width: rem(400);
+    border-radius: rem(5);
+
+    &__img__container {
+        max-width: rem(320);
+        width: 100%;
+        height: rem(220);
+        position: relative;
+    }
+
+    &__close {
+        position: absolute;
+        top: rem(10);
+        right: rem(10);
+        display: flex;
+        gap: rem(5);
+
+        span {
+            @include font(16, 700);
+        }
+
+        &__icon {
+            font-size: rem(21);
+        }
+    }
+
+    &__title {
+        @include font(24, 700);
+        margin: rem(7) 0;
+    }
+
+    &__select {
+        width: 100%;
+        height: rem(39);
+        background: $red;
+        color: white;
+        font-size: rem(17);
+        padding: 0 rem(15);
+        margin-bottom: rem(10);
+        border: none;
+    }
+
+    &__count {
+        display: flex;
+        align-items: center;
+        flex: 2;
+
+        &__result {
+            background: $gray;
+            width: rem(37);
+            height: rem(29);
+            text-align: center;
+            padding-top: rem(5);
+        }
+
+        &__btn {
+            width: rem(29);
+            height: rem(29);
+            font-size: rem(20);
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            padding-top: rem(4);
+            background: $green;
+
+
+            &__minus {
+                border-radius: rem(3) 0 0 rem(3);
+            }
+
+            &__plus {
+                border-radius: 0 rem(3) rem(3) 0;
+            }
+        }
+    }
+
+    &__price {
+        @include font(30, 700);
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: rem(20);
+    }
+
+    @include breakpoint-max(600) {
+        padding: 35px 20px 20px 20px;
+    }
+}

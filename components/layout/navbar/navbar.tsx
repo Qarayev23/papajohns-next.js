@@ -1,9 +1,11 @@
+'use client'
+
 import Link from 'next/link'
 import styles from './navbar.module.scss'
 import { FaUserAlt } from "react-icons/fa";
 import { AiFillCaretDown } from "react-icons/ai";
 import Logo from './logo/logo';
-import Basket from './basket/basket';
+import Basket from '@/components/basket/basket';
 import Image from 'next/image';
 import { navLinks } from '@/constants';
 
