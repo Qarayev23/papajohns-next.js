@@ -8,7 +8,7 @@ import Basket from "../basket/basket";
 import Button from "../button/button";
 import styles from "./productDetailModal.module.scss";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { increment } from "@/redux/features/counterSlice";
+import { addBaket, increment } from "@/redux/features/basketSlice";
 import { useAppDispatch } from "@/redux/hooks";
 
 const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) => {
@@ -101,7 +101,9 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
                 </div>
                 <div className={styles.card__footer}>
                   <Basket />
-                  <Button text="Səbətə at" handleClick={() => dispatch(increment({totalPrice: price * count, count}))} />
+                  <Button text="Səbətə at" handleClick={() => {
+                    dispatch(addBaket({ name: data.name, img: data.img, price, type: selectValue, totalPrice: price * count, count, id: data.id }))
+                  }} />
                 </div>
               </Dialog.Panel>
             </Transition.Child>

@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./features/counterSlice";
+import basketReducer from "./features/basketSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 
@@ -10,7 +10,7 @@ const persistConfig = {
 };
 
 const reducer = combineReducers({
-  counterReducer: counterReducer,
+  basketReducer: basketReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -19,6 +19,10 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 export const store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV !== "production",
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

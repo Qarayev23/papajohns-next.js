@@ -40,6 +40,11 @@ export interface ButtonProps {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
+export interface LinkProps {
+  item: { label: string; path: string },
+  isActive: boolean
+}
+
 export interface ProductDetailProps {
   isOpen: boolean;
   closeModal: () => void;

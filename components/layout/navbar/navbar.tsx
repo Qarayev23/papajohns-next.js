@@ -52,7 +52,7 @@ const Navbar = () => {
           <ul className={styles.nav__list}>
             {navLinks.map(item => {
               return (
-                <li className={styles.nav__item}>
+                <li className={styles.nav__item} key={item.label}>
                   <Link href={item.path} className={styles.nav__link}>{item.label}</Link>
                 </li>
               )

@@ -4,11 +4,12 @@ import Link from "next/link"
 import styles from "./category.module.scss"
 import { categoryLinks } from "@/constants"
 import { useSearchParams } from 'next/navigation'
+import { LinkProps } from "@/types"
 
 const Category = () => {
     const searchParams = useSearchParams()
 
-    const LinkComponent = (item: { label: string; path: string }, isActive: boolean) => {
+    const LinkComponent = ({ item, isActive }: LinkProps) => {
         return (
             <li className={styles.products__nav__item}>
                 <Link href={`?category=${item.path}`} className={isActive ? styles.products__nav__link + " " + styles.active
@@ -23,11 +24,9 @@ const Category = () => {
         <ul className={styles.products__nav}>
             {
                 searchParams.has('category') ? (
-                    categoryLinks.map(item => {
+                    categoryLinks.map((item, i) => {
                         const isActive = searchParams.get("category") === item.path
-                        return (
-                            LinkComponent(item, isActive)
-                        )
+                        return <LinkComponent item={item} isActive={isActive} key={i} />
                     })
                 ) : (
                     <>
@@ -36,15 +35,11 @@ const Category = () => {
                                 Hamısı
                             </Link>
                         </li>
-                        {
-                            categoryLinks.map(item => {
-                                if (item.path !== "all") {
-                                    return (
-                                        LinkComponent(item, false)
-                                    )
-                                }
-                            })
-                        }
+                        {categoryLinks.map((item, i) => {
+                            if (item.path !== "all") {
+                                return <LinkComponent item={item} isActive={false} key={i} />
+                            }
+                        })}
                     </>
                 )
             }

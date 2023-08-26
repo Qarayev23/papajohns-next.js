@@ -1,0 +1,149 @@
+@import '@/assets/style/utilities/index.scss';
+
+.basket {
+    &__page {
+        margin: rem(30) 0;
+
+        &__title {
+            margin-bottom: rem(15);
+            @include font(42, 700)
+        }
+
+        &__subtitle {
+            margin-bottom: rem(35);
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: rem(50);
+
+            &__total {
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    }
+
+    &__product {
+        display: flex;
+        flex-direction: column;
+        gap: rem(40);
+
+        &__row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__info {
+            display: flex;
+            gap: rem(15);
+            width: rem(400);
+        }
+
+        &__img {
+            position: relative;
+            width: rem(100);
+        }
+
+        &__name {
+            @include font(24, 700);
+            margin-bottom: rem(7);
+        }
+
+        &__type {
+            font-size: rem(14);
+        }
+
+        &__count {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &__result {
+                background: $gray;
+                width: rem(37);
+                height: rem(29);
+                text-align: center;
+                padding-top: rem(5);
+            }
+
+            &__btn {
+                width: rem(29);
+                height: rem(29);
+                font-size: rem(20);
+                color: white;
+                text-align: center;
+                cursor: pointer;
+                padding-top: rem(4);
+                background: $green;
+
+
+                &__minus {
+                    border-radius: rem(3) 0 0 rem(3);
+                }
+
+                &__plus {
+                    border-radius: 0 rem(3) rem(3) 0;
+                }
+            }
+        }
+
+        &__result {
+            display: flex;
+            align-items: center;
+            width: rem(110);
+            justify-content: end;
+        }
+
+        &__price {
+            @include font(22, 700);
+            margin-right: rem(5);
+        }
+
+        &__remove {
+            font-size: 1.3rem;
+            color: gray;
+            margin-top: rem(4);
+
+            &:hover {
+                color: $red;
+            }
+        }
+    }
+
+    @include breakpoint-max($tablet-width) {
+        &__product {
+            &__row {
+                flex-wrap: wrap;
+                justify-content: initial;
+            }
+
+            &__info {
+                width: 100%;
+                margin-bottom: rem(20);
+            }
+
+            &__count {
+                margin-right: rem(40);
+            }
+        }
+
+        &__page {
+            &__title {
+                font-size: rem(32);
+            }
+
+            &__footer {
+                flex-direction: column-reverse;
+                gap: rem(15);
+            }
+        }
+    }
+}

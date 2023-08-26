@@ -1,41 +1,72 @@
+'use client'
+import Button from '@/components/button/button'
 import Image from 'next/image'
-import React from 'react'
+import { FaMinus, FaPlus } from 'react-icons/fa'
+import styles from './basketPage.module.scss'
+import { BiSolidTrash } from 'react-icons/bi'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks'
+import { decrement, increment, removeFromBasket } from '@/redux/features/basketSlice'
+import { useRouter } from 'next/navigation'
+import Skelton from '@/components/layout/skeleton/basket-page'
+
 
 const BasketPage = () => {
-    return (
-        <section className="basket_page">
-            <div className="container">
+    const { totalQuantity, totalAmount, basketItems } = useAppSelector((state) => state.basketReducer);
+    const dispatch = useAppDispatch()
+    const router = useRouter()
 
-            </div>
-            <h1 className="basket_page__title">Səbət</h1>
-            <p className="basket_page__subtitle">Səbətinizdə məhsulların sayı: <span>2</span></h2>
-            <div className="basket__product">
-                <div className="basket__product__row">
-                    <div className="basket__product__info">
-                        <div className="basket__product__img">
-                            <Image src="" alt="">
-                        </div>
-                        <div className='flex flex-col'>
-                            <h4 className="basket__product__name">Meksika</h4>
-                            <p className="basket__product__description">Kicik, 10 sm - 9$</p>
-                        </div>
-                    </div>
-                    <div className="count count-basket">
-                        <span className="fa fa-minus basket" style="background: rgb(15, 150, 117);"></span>
-                        <span className="basket-count">2</span>
-                        <span className="fa fa-plus basket"></span>
-                    </div>
-                    <div className="modal-price">
-                        <span className="basket-price">18$</span>
-                        <i className="fa fa-times" onclick="remove(event)"></i>
-                    </div>
+    return (
+        <section className={styles.basket__page}>
+            <div className="g-container">
+                <h1 className={styles.basket__page__title}>Səbət</h1>
+                <p className={styles.basket__page__subtitle}>Səbətinizdə məhsulların sayı: <span>{totalQuantity}</span></p>
+                <div className={styles.basket__product}>
+                    {
+                        basketItems.map((item, i) => (
+                            <div key={i} className={styles.basket__product__row}>
+                                <div className={styles.basket__product__info}>
+                                    <div className={styles.basket__product__img}>
+                                        <Image src={item.img} fill alt={item.name} />
+                                    </div>
+                                    <div className='flex flex-col'>
+                                        <h4 className={styles.basket__product__name}>{item.name}</h4>
+                                        <p className={styles.basket__product__type}>{item.type}</p>
+                                    </div>
+                                </div>
+                                <div className={styles.basket__product__count}>
+                                    <button className={styles.basket__product__count__btn + " " + styles.basket__product__count__btn__minus}
+                                        style={{ background: item.count === 1 ? "gray" : "#0f9675" }}
+                                        onClick={() => { dispatch(decrement({ id: item.id, price: item.price })) }}
+                                        disabled={item.count === 1}>
+                                        <FaMinus />
+                                    </button>
+                                    <span className={styles.basket__product__count__result}>{item.count}</span>
+                                    <button className={styles.basket__product__count__btn + " " + styles.basket__product__count__btn__plus}
+                                        onClick={() => { dispatch(increment({ id: item.id, price: item.price })) }}
+                                    >
+                                        <FaPlus />
+                                    </button>
+                                </div>
+                                <div className={styles.basket__product__result}>
+                                    <span className={styles.basket__product__price}>
+                                        {item.totalPrice}M
+                                    </span>
+                                    <button className={styles.basket__product__remove}
+                                        onClick={() => dispatch(removeFromBasket({ id: item.id, price: item.totalPrice, count: item.count }))}>
+                                        <BiSolidTrash />
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className={styles.basket__page__footer}>
+                    {basketItems.length > 0 ? <Button text="sifarişi göndər" />
+                        : <Button text="Menyuya keçin" handleClick={() => router.push("/")} />}
+                    <span className={styles.basket__page__footer__total}>Ümumi məbləğ: {totalAmount}M</span>
                 </div>
             </div>
-            <div className="basket-footer">
-                <a href="#" className="btn" id="checkout-btn">sifarişi göndər</a>
-                <p id="total-price">Ümumi məbləğ: 18$</p>
-            </div>
-        </div>
+        </section>
     )
 }
 
