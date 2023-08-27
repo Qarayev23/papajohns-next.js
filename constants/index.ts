@@ -59,3 +59,26 @@ export const categoryLinks = [
         path: "spicy"
     }
 ]
+
+export const footerLinks = [
+    {
+        label: "Haqqımızda",
+        path: "/"
+    },
+    {
+        label: "Sual-Cavab",
+        path: "/"
+    },
+    {
+        label: "Karyera",
+        path: "/"
+    },
+    {
+        label: "Xəmir",
+        path: "/"
+    },
+    {
+        label: "Papa Talk",
+        path: "/"
+    },
+]

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from './footer.module.scss'
 import { FaFacebookF, FaInstagram, FaTripadvisor, FaTwitter } from "react-icons/fa";
+import { footerLinks } from '@/constants';
 
 const Footer = () => {
     return (
@@ -9,21 +10,13 @@ const Footer = () => {
             <div className="g-container">
                 <div className={styles.footer__content}>
                     <ul className={styles.footer__list}>
-                        <li className={styles.footer__item}>
-                            <Link href="" className={styles.footer__link}>Haqqımızda</Link>
-                        </li>
-                        <li className={styles.footer__item}>
-                            <Link href="" className={styles.footer__link}>Sual-Cavab</Link>
-                        </li>
-                        <li className={styles.footer__item}>
-                            <Link href="" className={styles.footer__link}>Karyera</Link>
-                        </li>
-                        <li className={styles.footer__item}>
-                            <Link href="" className={styles.footer__link}>Xəmir</Link>
-                        </li>
-                        <li className={styles.footer__item}>
-                            <Link href="" className={styles.footer__link}>Papa Talk</Link>
-                        </li>
+                        {
+                            footerLinks.map((item, index) => (
+                                <li key={index} className={styles.footer__item}>
+                                    <Link href={item.path} className={styles.footer__link}>{item.label}</Link>
+                                </li>
+                            ))
+                        }
                     </ul>
                     <div className={styles.footer__photos}>
                         <Image src="/img/download.png" fill alt="img" />
