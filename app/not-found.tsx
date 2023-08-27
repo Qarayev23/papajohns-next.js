@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-const Error = () => {
+const NotFound = () => {
   return (
     <div style={{
       width:'100%',
@@ -14,4 +14,4 @@ const Error = () => {
   )
 }
 
-export default Error
+export default NotFound
