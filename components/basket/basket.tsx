@@ -1,3 +1,4 @@
+'use client';
 import { useAppSelector } from "@/redux/hooks";
 import Link from "next/link";
 import { BiSolidBasket } from "react-icons/bi";
