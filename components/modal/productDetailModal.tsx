@@ -101,9 +101,11 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
                 </div>
                 <div className={styles.card__footer}>
                   <Basket />
-                  <Button text="Səbətə at" handleClick={() => {
+                  <Button handleClick={() => {
                     dispatch(addBaket({ name: data.name, img: data.img, price, type: selectValue, totalPrice: price * count, count, id: data.id }))
-                  }} />
+                  }}>
+                    Səbətə at
+                  </Button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

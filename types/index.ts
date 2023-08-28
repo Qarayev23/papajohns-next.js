@@ -36,8 +36,10 @@ export interface ShowMoreProps {
 }
 
 export interface ButtonProps {
-  text: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
+  children?:  React.ReactNode;
+  className?: string,
+  type?: 'button' | 'submit',
 }
 
 export interface LinkProps {

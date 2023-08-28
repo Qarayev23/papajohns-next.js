@@ -6,6 +6,7 @@ import Navbar from '@/components/layout/navbar/navbar'
 import Footer from '@/components/layout/footer/footer'
 import { Providers } from '@/redux/provider'
 import { PersistProvider } from '@/redux/persistProvider'
+import AuthProvider from "./Provider";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,9 +25,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <PersistProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            <AuthProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </AuthProvider>
           </PersistProvider>
         </Providers>
       </body>

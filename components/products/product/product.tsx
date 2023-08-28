@@ -19,10 +19,9 @@ const Product = ({ data }: { data: PizzasProps }) => {
                 </div>
                 <div className={styles.product__caption}>
                     <h4 className={styles.product__title}>{data.name}</h4>
-                    <Button text="Bunu seç" 
-                    handleClick={
-                        () => setIsOpen(true)
-                    } />
+                    <Button handleClick={() => setIsOpen(true)}>
+                        Bunu seç
+                    </Button>
                 </div>
                 <p className={styles.product__ingredients}>
                     {data.ingredients}

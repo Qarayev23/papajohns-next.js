@@ -21,13 +21,10 @@ const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
       display: "flex",
       justifyContent: "center",
       marginBottom: "30px"
-}}>
-  {!isNext && (
-    <Button
-      text="Daha çox"
-      handleClick={handleClick}
-    />
-  )}
+    }}>
+      {!isNext && (
+        <Button handleClick={handleClick}>Daha çox</Button>
+      )}
     </div >
   );
 };

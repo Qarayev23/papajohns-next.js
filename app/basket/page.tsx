@@ -58,8 +58,8 @@ const BasketPage = () => {
                     }
                 </div>
                 <div className={styles.basket__page__footer}>
-                    {basketItems.length > 0 ? <Button text="sifarişi göndər" />
-                        : <Button text="Menyuya keçin" handleClick={() => router.push("/")} />}
+                    {basketItems.length > 0 ? <Button>sifarişi göndər</Button>
+                        : <Button handleClick={() => router.push("/")}>Menyuya keçin</Button>}
                     <span className={styles.basket__page__footer__total}>Ümumi məbləğ: {totalAmount}M</span>
                 </div>
             </div>

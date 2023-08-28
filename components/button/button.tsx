@@ -1,13 +1,13 @@
 import { ButtonProps } from "@/types"
 
-const Button = ({ text, handleClick }: ButtonProps) => {
+const Button = ({ handleClick, className, type, children }: ButtonProps) => {
     return (
         <button
-            type="button"
-            className="g-button"
+            type={type || "button"}
+            className={"g-button" + " " + className}
             onClick={handleClick}
         >
-            {text}
+            {children}
         </button>
     )
 }
