@@ -1,12 +1,31 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import basketReducer from "./features/basketSlice";
-import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import { WebStorage } from 'redux-persist/lib/types';
+
+function createPersistStorage(): WebStorage {
+  const isServer = typeof window === 'undefined';
+  if (isServer) {
+    return {
+      getItem() {
+        return Promise.resolve(null);
+      },
+      setItem() {
+        return Promise.resolve();
+      },
+      removeItem() {
+        return Promise.resolve();
+      },
+    };
+  }
+  return createWebStorage('local');
+}
 
 const persistConfig = {
   key: "root",
   version: 1,
-  storage,
+  storage: createPersistStorage(),
 };
 
 const reducer = combineReducers({

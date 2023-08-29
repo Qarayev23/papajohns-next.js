@@ -5,7 +5,7 @@ import styles from "./product.module.scss"
 import Button from '@/components/button/button'
 import { PizzasProps } from '@/types'
 import { useState } from 'react'
-import ProductDetailModal from '@/components/modal/productDetailModal'
+import ProductDetailModal from '@/components/modals/productDetailModal'
 
 const Product = ({ data }: { data: PizzasProps }) => {
 

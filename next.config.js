@@ -16,6 +16,11 @@ module.exports = {
         hostname: 'lh3.googleusercontent.com',
         pathname: '/**'
       },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/**'
+      },
     ],
   },
 }

@@ -23,6 +23,18 @@
     font-weight: bold;
     border-radius: rem(4);
     flex-shrink: 0;
+    
+    &:hover {
+        background: darken($green, 10%);
+    }
+
+    &--red {
+        background: $red;
+
+        &:hover {
+            background: darken($red, 10%);
+        }
+    }
 }
 
 .basket {

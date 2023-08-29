@@ -27,8 +27,6 @@ export const basket = createSlice({
   initialState,
   reducers: {
     removeFromBasket: (state, action: PayloadAction<{ id: number; price: number; count: number; type: string; }>) => {
-      console.log(action.payload.type);
-
       state.basketItems = state.basketItems.filter(item => {
         if (item.id === action.payload.id) {
           return item.type !== action.payload.type

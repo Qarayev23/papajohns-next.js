@@ -6,9 +6,9 @@ import { Fragment, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Basket from "../basket/basket";
 import Button from "../button/button";
-import styles from "./productDetailModal.module.scss";
+import styles from "./modal.module.scss";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { addBaket, increment } from "@/redux/features/basketSlice";
+import { addBaket } from "@/redux/features/basketSlice";
 import { useAppDispatch } from "@/redux/hooks";
 
 const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) => {

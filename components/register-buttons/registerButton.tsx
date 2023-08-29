@@ -1,11 +1,11 @@
 "use client";
 import { signIn } from "next-auth/react";
-const SigninButton = () => {
+const RegisterButton = () => {
   return (
     <>
       <button
         className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
-        onClick={() => signIn("google")} >
+        onClick={() => signIn("google", { callbackUrl: "/" })} >
         <div className="bg-white p-2 rounded-full">
           <svg className="w-4" viewBox="0 0 533.5 544.3">
             <path
@@ -33,7 +33,7 @@ const SigninButton = () => {
 
       <button
         className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
-      >
+        onClick={() => signIn("github", { callbackUrl: "/" })} >
         <div className="bg-white p-1 rounded-full">
           <svg className="w-6" viewBox="0 0 32 32">
             <path
@@ -50,4 +50,4 @@ const SigninButton = () => {
   );
 };
 
-export default SigninButton;
+export default RegisterButton;
