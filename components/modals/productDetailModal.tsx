@@ -13,15 +13,8 @@ import { useAppDispatch } from "@/redux/hooks";
 
 const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) => {
   const dispatch = useAppDispatch();
-
-  const options = [
-    `Kicik, 10 sm - ${data.price?.small} M`,
-    `Orta, 20 sm - ${data.price?.middle} M`,
-    `Böyük, 30 sm - ${data.price?.big} M`,
-  ]
-
-  const [selectValue, setSelectValue] = useState(options[0])
-  const [price, setPrice] = useState(Number(selectValue?.split(" - ")[1].split(" M")[0]))
+  const [selectValue, setSelectValue] = useState(data.options ? data.options[0] : "")
+  const [price, setPrice] = useState(data.options ? Number(selectValue?.split(" - ")[1].split(" M")[0]) : 0)
 
   const handleOnchange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(e.target.value)
@@ -79,9 +72,12 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
 
                 {data.category && (
                   <select className={styles.card__select} value={selectValue} onChange={handleOnchange}>
-                    {options.map((option, index) => (
-                      <option key={index} value={option}>{option}</option>
-                    ))}
+                    {data?.options?.map((option, index) => {
+                      return (
+                        <option key={index} value={option}>{option}</option>
+                      )
+                    }
+                    )}
                   </select>
                 )}
 
@@ -100,7 +96,7 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
                     </button>
                   </div>
                   <span className={styles.card__price}>
-                    {data.category ? price * count : data.price * count} M
+                    {data.options ? price * count : data.price * count} M
                   </span>
                 </div>
                 <div className={styles.card__footer}>
@@ -109,9 +105,9 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
                     dispatch(addBaket({
                       name: data.name,
                       img: data.img,
-                      price: data.category ? price : data.price,
-                      type: data.category ? selectValue : null,
-                      totalPrice: data.category ? price * count : data.price * count,
+                      price: data.options ? price : data.price,
+                      type: data.options ? selectValue : null,
+                      totalPrice: data.options ? price * count : data.price * count,
                       count,
                       id: data.id
                     }))

@@ -30,8 +30,9 @@ export interface PizzasProps {
   name: string
   img: string
   category?: string
-  ingredients: string[]
-  price: any
+  ingredients: string
+  price: any,
+  options: string[]
 }
 
 export interface Price {
