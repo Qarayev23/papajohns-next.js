@@ -1,5 +1,4 @@
 import { PizzasProps, Root } from "@/types"
-import Category from "./category/category"
 import Product from "./product/product"
 import styles from "./products.module.scss"
 
@@ -8,7 +7,6 @@ const Products = async ({ data }: { data: Root }) => {
         <>
             <section className={styles.products}>
                 <div className="g-container">
-                    <Category />
                     {
                         data.length > 0 ? (
                             <div className={styles.products__list}>

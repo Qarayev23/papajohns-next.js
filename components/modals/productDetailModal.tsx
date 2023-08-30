@@ -15,13 +15,13 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
   const dispatch = useAppDispatch();
 
   const options = [
-    `Kicik, 10 sm - ${data.price.small} M`,
-    `Orta, 20 sm - ${data.price.middle} M`,
-    `Böyük, 30 sm - ${data.price.big} M`,
+    `Kicik, 10 sm - ${data.price?.small} M`,
+    `Orta, 20 sm - ${data.price?.middle} M`,
+    `Böyük, 30 sm - ${data.price?.big} M`,
   ]
 
   const [selectValue, setSelectValue] = useState(options[0])
-  const [price, setPrice] = useState(Number(selectValue.split(" - ")[1].split(" M")[0]))
+  const [price, setPrice] = useState(Number(selectValue?.split(" - ")[1].split(" M")[0]))
 
   const handleOnchange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(e.target.value)
@@ -77,11 +77,13 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
 
                 <h4 className={styles.card__title}>{data.name}</h4>
 
-                <select className={styles.card__select} value={selectValue} onChange={handleOnchange}>
-                  {options.map((option, index) => (
-                    <option key={index} value={option}>{option}</option>
-                  ))}
-                </select>
+                {data.category && (
+                  <select className={styles.card__select} value={selectValue} onChange={handleOnchange}>
+                    {options.map((option, index) => (
+                      <option key={index} value={option}>{option}</option>
+                    ))}
+                  </select>
+                )}
 
                 <div className="flex justify-between">
                   <div className={styles.card__count}>
@@ -97,12 +99,22 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
                       <FaPlus />
                     </button>
                   </div>
-                  <span className={styles.card__price}>{price * count} M</span>
+                  <span className={styles.card__price}>
+                    {data.category ? price * count : data.price * count} M
+                  </span>
                 </div>
                 <div className={styles.card__footer}>
                   <Basket />
                   <Button handleClick={() => {
-                    dispatch(addBaket({ name: data.name, img: data.img, price, type: selectValue, totalPrice: price * count, count, id: data.id }))
+                    dispatch(addBaket({
+                      name: data.name,
+                      img: data.img,
+                      price: data.category ? price : data.price,
+                      type: data.category ? selectValue : null,
+                      totalPrice: data.category ? price * count : data.price * count,
+                      count,
+                      id: data.id
+                    }))
                   }}>
                     Səbətə at
                   </Button>

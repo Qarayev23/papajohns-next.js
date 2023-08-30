@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { ShowMoreProps } from "@/types";
 import Button from "../button/button";
 
-const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
+const ShowMore = ({ pageNumber, isNext, isEqual }: ShowMoreProps) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -12,17 +12,12 @@ const ShowMore = ({ pageNumber, isNext }: ShowMoreProps) => {
     const searchParams = new URLSearchParams(window.location.search);
     searchParams.set("_limit", newLimit.toString());
     const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
-
     router.push(newPathname, { scroll: false });
   };
 
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      marginBottom: "30px"
-    }}>
-      {!isNext && (
+    <div className="flex justify-center my-8">
+      {!isNext && !isEqual && (
         <Button handleClick={handleClick}>Daha çox</Button>
       )}
     </div >

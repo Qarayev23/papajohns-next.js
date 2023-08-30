@@ -23,4 +23,13 @@ module.exports = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/menu',
+        destination: '/menu/pizza',
+        permanent: true,
+      },
+    ]
+  },
 }

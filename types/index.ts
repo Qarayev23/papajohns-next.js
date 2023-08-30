@@ -1,12 +1,22 @@
 import { MouseEventHandler } from "react";
 
-export interface FilterProps {
+export interface PizzaFilterProps {
   category?: string;
   _limit?: number;
+  q?: string;
 }
 
-export interface HomeProps {
-  searchParams: FilterProps;
+export interface PizzaPageProps {
+  searchParams: PizzaFilterProps;
+}
+
+export interface PapadiasFilterProps {
+  _limit?: number;
+  q?: string;
+}
+
+export interface PapadiasPageProps {
+  searchParams: PapadiasFilterProps;
 }
 
 export interface Root {
@@ -19,9 +29,9 @@ export interface PizzasProps {
   id: number
   name: string
   img: string
-  category: string
+  category?: string
   ingredients: string[]
-  price: Price
+  price: any
 }
 
 export interface Price {
@@ -33,11 +43,12 @@ export interface Price {
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  isEqual: boolean;
 }
 
 export interface ButtonProps {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
-  children?:  React.ReactNode;
+  children?: React.ReactNode;
   className?: string,
   type?: 'button' | 'submit',
 }

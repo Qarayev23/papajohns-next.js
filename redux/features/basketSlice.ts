@@ -1,10 +1,11 @@
+import { Price } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type BasketProps = {
   name: string
   img: string,
   price: number,
-  type: string,
+  type: string | null,
   count: number,
   totalPrice: number,
   id: number
@@ -26,7 +27,7 @@ export const basket = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    removeFromBasket: (state, action: PayloadAction<{ id: number; price: number; count: number; type: string; }>) => {
+    removeFromBasket: (state, action: PayloadAction<{ id: number; price: number; count: number; type: string | null; }>) => {
       state.basketItems = state.basketItems.filter(item => {
         if (item.id === action.payload.id) {
           return item.type !== action.payload.type
@@ -37,13 +38,15 @@ export const basket = createSlice({
       state.totalQuantity -= action.payload.count;
       state.totalAmount -= action.payload.price;
     },
-    increment: (state, action: PayloadAction<{ id: number; price: number; type: string; }>) => {
+    increment: (state, action: PayloadAction<{ id: number; price: number; type: string | null; }>) => {
+      console.log(action.payload);
+      
       state.basketItems = state.basketItems.map(item => item.id === action.payload.id && item.type === action.payload.type ?
         { ...item, count: item.count + 1, totalPrice: item.totalPrice + action.payload.price } : item)
       state.totalQuantity += 1;
       state.totalAmount += action.payload.price;
     },
-    decrement: (state, action: PayloadAction<{ id: number; price: number; type: string; }>) => {
+    decrement: (state, action: PayloadAction<{ id: number; price: number; type: string | null; }>) => {
       state.basketItems = state.basketItems.map(item => item.id === action.payload.id && item.type === action.payload.type ?
         { ...item, count: item.count - 1, totalPrice: item.totalPrice - action.payload.price } : item)
       state.totalQuantity -= 1;

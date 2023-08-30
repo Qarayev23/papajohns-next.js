@@ -3,7 +3,11 @@ import { OPTIONS } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'Papa Johns | Register',
+}
 export default async function Register() {
   const session = await getServerSession(OPTIONS);
 
