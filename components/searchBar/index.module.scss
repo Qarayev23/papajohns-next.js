@@ -1,0 +1,21 @@
+@import '@/assets/style/utilities/index.scss';
+
+.search__form {
+    display: flex;
+    align-items: center;
+    gap: rem(5);
+
+    &__input {
+        width: rem(210);
+        height: rem(40);
+        border-radius: rem(8);
+        font-size: rem(16);
+        border: 1px solid $green;
+        padding: 0 rem(10);
+
+        &::placeholder {
+            @include font(15, 700);
+            color: rgb(182, 182, 182);
+        }
+    }
+}

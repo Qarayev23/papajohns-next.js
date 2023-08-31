@@ -1,13 +1,17 @@
 import { MouseEventHandler } from "react";
 
-export interface PizzaFilterProps {
+export interface FilterProps {
   category?: string;
   _limit?: number;
   q?: string;
+  slug?: string;
 }
 
-export interface PizzaPageProps {
-  searchParams: PizzaFilterProps;
+export interface MenuPageProps {
+  searchParams: { category?: string; _limit?: number; q?: string; }
+  params: {
+    slug: string | undefined; params: { slug: string }
+  }
 }
 
 export interface PapadiasFilterProps {

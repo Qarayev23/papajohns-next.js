@@ -26,7 +26,6 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
   const increaseCount = () => {
     setCount(count + 1)
   }
-
   const decreaseCount = () => {
     if (count === 1) return
     setCount(count - 1)
@@ -70,7 +69,7 @@ const ProductDetailModal = ({ isOpen, closeModal, data }: ProductDetailProps) =>
 
                 <h4 className={styles.card__title}>{data.name}</h4>
 
-                {data.category && (
+                {data.options && (
                   <select className={styles.card__select} value={selectValue} onChange={handleOnchange}>
                     {data?.options?.map((option, index) => {
                       return (

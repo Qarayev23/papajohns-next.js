@@ -1,28 +1,20 @@
 import axios from "axios";
-import { PapadiasFilterProps, PizzaFilterProps } from "@/types";
+import { FilterProps } from "@/types";
 
-const API = axios.create({ baseURL: "https://papajohns-api.onrender.com/" });
+const API = axios.create({ baseURL: process.env.API_URL });
 
-export async function fetchPizzas(filters: PizzaFilterProps) {
-    const { category, _limit, q } = filters;
-    let url = ""
+export async function fetchProducts(filters: FilterProps) {
+    const { category, _limit, q, slug } = filters;
 
-    category === "all" ? url = `?_limit=${_limit}` : url = `?category=${category}`
+    let url = `?_limit=${_limit}&q=${q}`
 
-    if (q !== "") url = `?q=${q}`
+    if (category !== "all") url = `?category=${category}`
 
-    const res = await API.get("pizzas" + url);
+    // if (q !== "") url = `?q=${q}`
+    console.log("products/" + slug + url);
 
-    return res;
-}
 
-export async function fetchPapadias(filters: PapadiasFilterProps) {
-    const { _limit, q } = filters;
-    let url = `?_limit=${_limit}`
-
-    if (q !== "") url = `?q=${q}`
-
-    const res = await API.get("papadias" + url);
+    const res = await API.get("products/" + slug + url);
 
     return res;
 }

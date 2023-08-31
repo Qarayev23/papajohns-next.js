@@ -1,39 +1,39 @@
 export const navLinks = [
     {
         label: "KAMPANİYALAR",
-        path: "/"
+        path: "/promo"
     },
     {
         label: "PAPADİAS",
-        path: "/"
+        path: "/papadias"
     },
     {
         label: "PİZZA",
-        path: "/"
+        path: "/pizza"
     },
     {
         label: "QƏLYANALTI",
-        path: "/"
+        path: "/snack"
     },
     {
         label: "SALAT",
-        path: "/"
+        path: "/salad"
     },
     {
         label: "PASTA",
-        path: "/"
+        path: "/pasta"
     },
     {
         label: "İÇKİ",
-        path: "/"
+        path: "/drink"
     },
     {
         label: "DESERT",
-        path: "/"
+        path: "/desert"
     },
     {
         label: "SOUS",
-        path: "/"
+        path: "/sauce"
     }
 ]
 

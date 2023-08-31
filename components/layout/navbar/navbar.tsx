@@ -12,6 +12,7 @@ import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import SearchBar from '@/components/searchBar';
 
 const Navbar = () => {
   const { data: session, status } = useSession()
@@ -21,6 +22,7 @@ const Navbar = () => {
       <div className="g-container">
         <div className={styles.header__top}>
           <Logo />
+
           <ul className={styles.header__top__left}>
             <li className={styles.header__top__item}>
               <Link href="" className={styles.header__top__link}>Restoranlar</Link>
@@ -29,6 +31,9 @@ const Navbar = () => {
               <Link href="" className={styles.header__top__link}>PapaBonus</Link>
             </li>
           </ul>
+
+          <SearchBar />
+
           <div className={styles.header__top__right}>
             <button className={styles.lang}>
               <Image src="/img/flag_az.png" width={33} height={33} alt="flag" />
@@ -67,6 +72,7 @@ const Navbar = () => {
             )}
             <Basket />
           </div>
+
         </div>
 
         <div className={styles.header__mobile}>
@@ -111,13 +117,14 @@ const Navbar = () => {
           <Basket />
         </div>
       </div>
+
       <nav className={styles.nav}>
         <div className="g-container">
           <ul className={styles.nav__list}>
             {navLinks.map(item => {
               return (
                 <li className={styles.nav__item} key={item.label}>
-                  <Link href={item.path} className={styles.nav__link}>{item.label}</Link>
+                  <Link href={"/menu" + item.path} className={styles.nav__link}>{item.label}</Link>
                 </li>
               )
             })}

@@ -1,6 +1,6 @@
 'use client'
 
-import styles from "@/components/searchBar/searchBar.module.scss"
+import styles from "@/components/searchBar/index.module.scss"
 import Button from "../button/button"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
@@ -16,27 +16,19 @@ const SearchBar = () => {
         searchParams.delete("_limit");
         searchParams.set("q", value);
         const newPathname = `${window.location.pathname}?${searchParams}`;
-        router.push(newPathname, { scroll: false });
+        // router.push(newPathname, { scroll: false });
         setValue("")
     }
 
     return (
-        <div className="g-container">
-            <section className={styles.search__bar}>
-                <p className={styles.search__bar__text}>
-                    İstədiyiniz pizzanı
-                    <span> Axtarın!</span>
-                </p>
-                <form onSubmit={handleSubmit} className={styles.search__bar__form}>
-                    <input type="text"
-                        className={styles.search__bar__input}
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}
-                        placeholder="Axtar..." />
-                    <Button type="submit">OK</Button>
-                </form>
-            </section>
-        </div>
+        <form onSubmit={handleSubmit} className={styles.search__form}>
+            <input type="text"
+                className={styles.search__form__input}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                placeholder="Margarita..." />
+            <Button type="submit">Axtar</Button>
+        </form>
     )
 }
 
