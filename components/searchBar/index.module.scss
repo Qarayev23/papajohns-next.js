@@ -18,4 +18,25 @@
             color: rgb(182, 182, 182);
         }
     }
+
+    @include breakpoint-max($desktop-width) {
+
+        &__input {
+            width: rem(160);
+        }
+    }
+
+    @include breakpoint-max($desktop-sm-width) {
+        justify-content: center;
+
+        &__input {
+            width: rem(220);
+        }
+    }
+
+    @include breakpoint-max($mobile-width){
+        &__input {
+            width: 100%;
+        }
+    }
 }

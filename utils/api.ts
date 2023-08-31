@@ -11,10 +11,10 @@ export async function fetchProducts(filters: FilterProps) {
     if (category !== "all") url = `?category=${category}`
 
     // if (q !== "") url = `?q=${q}`
-    console.log("products/" + slug + url);
+    console.log(slug + url);
 
 
-    const res = await API.get("products/" + slug + url);
+    const res = await API.get(slug + url);
 
     return res;
 }

@@ -36,14 +36,14 @@ const Navbar = () => {
 
           <div className={styles.header__top__right}>
             <button className={styles.lang}>
-              <Image src="/img/flag_az.png" width={33} height={33} alt="flag" />
-              <span>Azərbaycanca</span>
+              <Image src="/img/flag_az.png" width={30} height={30} alt="flag" />
+              <span>AZE</span>
               <AiFillCaretDown className={styles.lang__icon} />
             </button>
             {status !== 'unauthenticated' ? (
               <Menu as="div" className="relative">
                 {session?.user?.image && session?.user?.name && (
-                  <Menu.Button className="flex flex-col items-center gap-2">
+                  <Menu.Button className="flex flex-col items-center" style={{gap: "0.3125rem"}}>
                     <Image src={session?.user?.image} alt={session?.user?.name} width={30} height={30} className='rounded-full' />
                     <span className='font-bold'>{session?.user?.name}</span>
                   </Menu.Button>
@@ -76,45 +76,51 @@ const Navbar = () => {
         </div>
 
         <div className={styles.header__mobile}>
-          <Logo />
-          <button className={styles.lang}>
-            <Image src="/img/flag_az.png" width={25} height={25} alt="flag" />
-            <span>Az</span>
-          </button>
-          {status !== 'unauthenticated' ? (
-            <Menu as="div" className="relative">
-              {session?.user?.image && session?.user?.name && (
-                <Menu.Button className="flex flex-col items-center gap-2">
-                  <Image src={session?.user?.image} alt={session?.user?.name} width={30} height={30} className='rounded-full' />
-                  <span className='font-bold'>{session?.user?.name}</span>
-                </Menu.Button>
-              )}
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items className={styles.register__dropdown}>
-                  <Menu.Item>
-                    <button className={styles.register__dropdown__item} onClick={() => signOut({ callbackUrl: "/register" })}>
-                      Çıxış et
-                      <AiOutlineLogout />
-                    </button>
-                  </Menu.Item>
-                </Menu.Items>
-              </Transition>
-            </Menu>
-          ) : (
-            <Link href="/register" className={styles.register}>
-              <FaUserAlt className={styles.register__icon} />
-              <span>Giriş</span>
-            </Link>
-          )}
-          <Basket />
+          <div className={styles.header__mobile__top}>
+            <Logo />
+            <button className={styles.lang}>
+              <Image src="/img/flag_az.png" width={30} height={30} alt="flag" />
+              <span>Az</span>
+            </button>
+            {status !== 'unauthenticated' ? (
+              <Menu as="div" className="relative">
+                {session?.user?.image && session?.user?.name && (
+                  <Menu.Button className="flex flex-col items-center" style={{gap: "5px"}}>
+                    <Image src={session?.user?.image} alt={session?.user?.name} width={30} height={30} className='rounded-full' />
+                    <span className='font-bold'>{session?.user?.name}</span>
+                  </Menu.Button>
+                )}
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className={styles.register__dropdown}>
+                    <Menu.Item>
+                      <button className={styles.register__dropdown__item} onClick={() => signOut({ callbackUrl: "/register" })}>
+                        Çıxış et
+                        <AiOutlineLogout />
+                      </button>
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            ) : (
+              <Link href="/register" className={styles.register}>
+                <FaUserAlt className={styles.register__icon} />
+                <span>Giriş</span>
+              </Link>
+            )}
+            <Basket />
+          </div>
+
+          <div className={styles.header__mobile__bottom}>
+            <SearchBar />
+          </div>
         </div>
       </div>
 
@@ -124,7 +130,7 @@ const Navbar = () => {
             {navLinks.map(item => {
               return (
                 <li className={styles.nav__item} key={item.label}>
-                  <Link href={"/menu" + item.path} className={styles.nav__link}>{item.label}</Link>
+                  <Link href={item.path} className={styles.nav__link}>{item.label}</Link>
                 </li>
               )
             })}

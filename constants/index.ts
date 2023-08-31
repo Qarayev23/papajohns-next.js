@@ -5,35 +5,35 @@ export const navLinks = [
     },
     {
         label: "PAPADİAS",
-        path: "/papadias"
+        path: "/menu/papadias"
     },
     {
         label: "PİZZA",
-        path: "/pizza"
+        path: "/menu/pizza"
     },
     {
         label: "QƏLYANALTI",
-        path: "/snack"
+        path: "/menu/snack"
     },
     {
         label: "SALAT",
-        path: "/salad"
+        path: "/menu/salad"
     },
     {
         label: "PASTA",
-        path: "/pasta"
+        path: "/menu/pasta"
     },
     {
         label: "İÇKİ",
-        path: "/drink"
+        path: "/menu/drink"
     },
     {
         label: "DESERT",
-        path: "/desert"
+        path: "/menu/desert"
     },
     {
         label: "SOUS",
-        path: "/sauce"
+        path: "/menu/sauce"
     }
 ]
 

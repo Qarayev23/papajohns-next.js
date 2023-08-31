@@ -1,3 +1,0 @@
-{
-    "/products/:q": "/products?q=:q"
-}

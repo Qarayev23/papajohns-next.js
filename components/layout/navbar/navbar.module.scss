@@ -70,10 +70,13 @@
 
     &__mobile {
         display: none;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 rem(15);
-        height: rem(68);
+
+        &__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: rem(68);
+        }
 
         .register {
             display: flex;
@@ -151,6 +154,26 @@
         }
     }
 
+    @include breakpoint-max($desktop-width) {
+        &__top {
+            margin-bottom: re;
+            &__left {
+                margin-left: 0;
+            }
+
+            &__right {
+                gap: rem(20);
+            }
+        }
+
+        .nav {
+            &__list {
+                margin: 0;
+                justify-content: center;
+            }
+        }
+    }
+
     @include breakpoint-max($desktop-sm-width) {
         &__top {
             display: none;
@@ -158,13 +181,15 @@
 
         &__mobile {
             display: flex;
+            flex-direction: column;
+            gap: rem(10);
+            margin-bottom: rem(10);
         }
 
         .nav {
             padding: rem(20) 0;
 
             &__list {
-                margin: 0px;
                 justify-content: center;
             }
 

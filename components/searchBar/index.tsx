@@ -15,8 +15,8 @@ const SearchBar = () => {
         searchParams.delete("category");
         searchParams.delete("_limit");
         searchParams.set("q", value);
-        const newPathname = `${window.location.pathname}?${searchParams}`;
-        // router.push(newPathname, { scroll: false });
+        const newPathname = `${window.location.origin}/menu/allProducts?${searchParams}`;
+        router.push(newPathname, { scroll: false });
         setValue("")
     }
 

@@ -17,6 +17,15 @@
         }
     }
 
+    @include breakpoint-max($desktop-width) {
+        position: static;
+
+        a {
+            width: rem(110);
+            height: rem(55);
+        }
+    }
+
     @include breakpoint-max($desktop-sm-width) {
         a {
             width: rem(90);
