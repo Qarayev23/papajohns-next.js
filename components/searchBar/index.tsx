@@ -11,6 +11,9 @@ const SearchBar = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        
+        if (value.trim() === "") return
+
         const searchParams = new URLSearchParams(window.location.search);
         searchParams.delete("category");
         searchParams.delete("_limit");
