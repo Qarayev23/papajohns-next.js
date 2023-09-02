@@ -30,6 +30,11 @@ module.exports = {
         destination: '/menu/pizza',
         permanent: true,
       },
+      {
+        source: '/',
+        destination: '/menu/pizza',
+        permanent: true,
+      },
     ]
   },
   env: {

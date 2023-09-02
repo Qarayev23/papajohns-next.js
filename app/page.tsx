@@ -41,7 +41,7 @@ const Page = () => {
             data.map(item => (
               <SwiperSlide key={item.id} className={styles.campaigns__slide}>
                 <Link href={"/promo/" + item.id}>
-                  <Image src={item.img} alt={item.title} layout="fill" />
+                  <Image src={item.img} alt={item.title} layout="fill" priority={true} />
                 </Link>
               </SwiperSlide>
             ))
