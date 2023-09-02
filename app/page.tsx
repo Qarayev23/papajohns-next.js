@@ -9,21 +9,28 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { API } from '@/utils/api';
 import { CampaignProps } from '@/types';
+import Skelton from '@/components/skeleton/rowSkleton';
 
 const Page = () => {
-  let [data, setData] = useState<CampaignProps[]>([]);
+  const [data, setData] = useState<CampaignProps[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true)
       try {
         const { data } = await API.get("campaigns");
         setData(data)
+        setLoading(false)
       } catch (error) {
         console.log(error);
+        setLoading(false)
       }
     }
     getData()
   }, [])
+
+  if (loading) return <Skelton />
 
   return (
     <section>
@@ -41,7 +48,7 @@ const Page = () => {
             data.map(item => (
               <SwiperSlide key={item.id} className={styles.campaigns__slide}>
                 <Link href={"/promo/" + item.id}>
-                  <Image src={item.img} alt={item.title} layout="fill" priority={true} />
+                  <Image src={item.img} alt={item.title} layout="fill" />
                 </Link>
               </SwiperSlide>
             ))

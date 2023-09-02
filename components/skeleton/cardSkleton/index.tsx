@@ -1,4 +1,4 @@
-import "@/components/skeleton/menu-pages/index.scss"
+import "@/components/skeleton/cardSkleton/index.scss"
 
 const Skelton = () => {
     return (

@@ -1,4 +1,4 @@
-import "@/components/skeleton/basket-page/index.scss";
+import "@/components/skeleton/rowSkleton/index.scss";
 
 const Skelton = () => {
     return (

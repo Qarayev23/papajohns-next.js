@@ -1,4 +1,4 @@
-import Skeleton from "@/components/skeleton/basket-page"
+import Skeleton from "@/components/skeleton/rowSkleton"
 
 const Loading = () => {
     return (

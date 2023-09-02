@@ -1,4 +1,4 @@
-import Skeleton from "@/components/skeleton/menu-pages"
+import Skeleton from "@/components/skeleton/cardSkleton"
 
 const Loading = () => {
     return (

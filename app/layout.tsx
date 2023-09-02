@@ -6,7 +6,7 @@ import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
 import { Providers } from '@/redux/provider'
 import { PersistProvider } from '@/redux/persistProvider'
-import AuthProvider from "./Provider";
+import AuthProvider from "@/components/authProvider";
 
 const inter = Inter({ subsets: ['latin'] })
 
