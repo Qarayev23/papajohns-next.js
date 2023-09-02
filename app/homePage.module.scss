@@ -1,0 +1,22 @@
+@import '@/assets/style/utilities/index.scss';
+
+.campaigns__slide {
+    margin: rem(30) 0;
+    height: rem(600);
+
+    img {
+        object-fit: cover;
+    }
+
+    @include breakpoint-max($tablet-width) {
+        height: rem(500);
+    }
+
+    @include breakpoint-max($mobile-width) {
+        height: rem(400);
+    }
+
+    @include breakpoint-max($mobile-width) {
+        margin-bottom: rem(60);
+    }
+}

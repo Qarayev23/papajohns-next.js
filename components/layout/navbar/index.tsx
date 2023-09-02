@@ -4,14 +4,14 @@ import Link from 'next/link'
 import styles from './navbar.module.scss'
 import { FaUserAlt } from "react-icons/fa";
 import { AiFillCaretDown, AiOutlineLogout } from "react-icons/ai";
-import Logo from './logo/logo';
-import Basket from '@/components/basket/basket';
+import Logo from './logo';
+import Basket from '@/components/basket';
 import Image from 'next/image';
 import { navLinks } from '@/constants';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment} from 'react'
 import SearchBar from '@/components/searchBar';
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
             {status !== 'unauthenticated' ? (
               <Menu as="div" className="relative">
                 {session?.user?.image && session?.user?.name && (
-                  <Menu.Button className="flex flex-col items-center" style={{gap: "0.3125rem"}}>
+                  <Menu.Button className="flex flex-col items-center" style={{ gap: "0.3125rem" }}>
                     <Image src={session?.user?.image} alt={session?.user?.name} width={30} height={30} className='rounded-full' />
                     <span className='font-bold'>{session?.user?.name}</span>
                   </Menu.Button>
@@ -85,7 +85,7 @@ const Navbar = () => {
             {status !== 'unauthenticated' ? (
               <Menu as="div" className="relative">
                 {session?.user?.image && session?.user?.name && (
-                  <Menu.Button className="flex flex-col items-center" style={{gap: "5px"}}>
+                  <Menu.Button className="flex flex-col items-center" style={{ gap: "5px" }}>
                     <Image src={session?.user?.image} alt={session?.user?.name} width={30} height={30} className='rounded-full' />
                     <span className='font-bold'>{session?.user?.name}</span>
                   </Menu.Button>

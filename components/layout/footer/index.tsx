@@ -19,7 +19,7 @@ const Footer = () => {
                         }
                     </ul>
                     <div className={styles.footer__photos}>
-                        <Image src="/img/download.png" fill alt="img" />
+                        <Image src="/img/footer-images-az-AZ.png" fill alt="img" />
                     </div>
                     <ul className={styles.footer__icons}>
                         <li className={styles.footer__icons__item}>

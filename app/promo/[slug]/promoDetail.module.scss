@@ -1,0 +1,42 @@
+@import '@/assets/style/utilities/index.scss';
+
+.campaign__detail {
+    display: flex;
+    gap: rem(50);
+    margin: rem(30) 0;
+
+    &__img {
+        width: rem(490);
+        height: rem(530);
+        position: relative;
+    }
+
+    &__content {
+        width: 60%;
+    }
+
+    &__text {
+        font-size: rem(14);
+    }
+
+    @include breakpoint-max($desktop-sm-width) {
+        flex-direction: column;
+        gap: rem(30);
+
+        &__content {
+            width: 100%;
+        }
+    }
+
+    @include breakpoint-max($tablet-width) {
+        &__img {
+            width: 100%;
+        }
+
+        @include breakpoint-max($mobile-width) {
+            &__img {
+                height: rem(330);
+            }
+        }
+    }
+}

@@ -39,8 +39,6 @@ export const basket = createSlice({
       state.totalAmount -= action.payload.price;
     },
     increment: (state, action: PayloadAction<{ id: number; price: number; type: string | null; }>) => {
-      console.log(action.payload);
-      
       state.basketItems = state.basketItems.map(item => item.id === action.payload.id && item.type === action.payload.type ?
         { ...item, count: item.count + 1, totalPrice: item.totalPrice + action.payload.price } : item)
       state.totalQuantity += 1;

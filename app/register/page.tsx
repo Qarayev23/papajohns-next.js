@@ -1,4 +1,4 @@
-import RegisterButton from "@/components/register-buttons/registerButton";
+import RegisterButton from "@/components/register-buttons";
 import { OPTIONS } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Papa Johns | Register',
 }
+
 export default async function Register() {
   const session = await getServerSession(OPTIONS);
 

@@ -5,6 +5,17 @@
         height: rem(220);
         width: 100%;
         position: relative;
+        overflow: hidden;
+
+        img {
+            transition: 0.3s;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
     }
 
     &__caption {
@@ -13,6 +24,7 @@
         gap: rem(10);
         margin-bottom: rem(10);
         margin-top: rem(7);
+        align-items: flex-start;
     }
 
     &__title {

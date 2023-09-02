@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai';
 import styles from "./modal.module.scss";
-import Button from '../button/button';
+import Button from '../button';
 import { useRouter } from 'next/navigation';
 
 interface Props {

@@ -1,0 +1,48 @@
+@import '@/assets/style/utilities/index.scss';
+
+.campaign {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(60) rem(45);
+    margin: rem(30) 0;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__img {
+        position: relative;
+        height: rem(290);
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            transition: 0.3s;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__text {
+        font-size: rem(16);
+        color: gray;
+        margin: rem(10) 0;
+    }
+
+    @include breakpoint-max($desktop-width) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint-max($tablet-width) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-max($tablet-width) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

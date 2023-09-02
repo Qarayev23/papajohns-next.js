@@ -1,8 +1,8 @@
-import { PizzasProps, Root } from "@/types"
-import Product from "./product/product"
+import { ProductsProps, RootProductsProps } from "@/types"
+import Product from "./product"
 import styles from "./products.module.scss"
 
-const Products = async ({ data }: { data: Root }) => {
+const Products = async ({ data }: { data: RootProductsProps }) => {
     return (
         <>
             <section className={styles.products}>
@@ -10,7 +10,7 @@ const Products = async ({ data }: { data: Root }) => {
                     {
                         data.length > 0 ? (
                             <div className={styles.products__list}>
-                                {data.map((item: PizzasProps) => (
+                                {data.map((item: ProductsProps) => (
                                     <Product data={item} key={item.id} />
                                 ))}
                             </div>

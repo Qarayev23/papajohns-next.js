@@ -4,11 +4,6 @@
     &__page {
         margin: rem(30) 0;
 
-        &__title {
-            margin-bottom: rem(15);
-            @include font(42, 700)
-        }
-
         &__subtitle {
             margin-bottom: rem(35);
 
@@ -137,10 +132,6 @@
         }
 
         &__page {
-            &__title {
-                font-size: rem(32);
-            }
-
             &__footer {
                 flex-direction: column-reverse;
                 gap: rem(15);

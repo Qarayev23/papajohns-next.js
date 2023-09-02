@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { ShowMoreProps } from "@/types";
-import Button from "../button/button";
+import Button from "../button";
 
 const ShowMore = ({ pageNumber, isNext, isEqual }: ShowMoreProps) => {
   const router = useRouter();

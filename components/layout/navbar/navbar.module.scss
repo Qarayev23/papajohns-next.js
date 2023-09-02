@@ -128,6 +128,10 @@
             &:hover {
                 opacity: 0.5;
             }
+
+            &.active {
+                border-bottom: 1px solid white;
+            }
         }
     }
 
@@ -157,6 +161,7 @@
     @include breakpoint-max($desktop-width) {
         &__top {
             margin-bottom: re;
+
             &__left {
                 margin-left: 0;
             }

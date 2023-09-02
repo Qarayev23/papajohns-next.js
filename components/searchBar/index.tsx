@@ -1,7 +1,7 @@
 'use client'
 
 import styles from "@/components/searchBar/index.module.scss"
-import Button from "../button/button"
+import Button from "../button"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 

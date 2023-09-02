@@ -23,7 +23,7 @@
     font-weight: bold;
     border-radius: rem(4);
     flex-shrink: 0;
-    
+
     &:hover {
         background: darken($green, 10%);
     }
@@ -34,6 +34,15 @@
         &:hover {
             background: darken($red, 10%);
         }
+    }
+}
+
+.g-title {
+    margin-bottom: rem(15);
+    @include font(42, 700);
+
+    @include breakpoint-max($tablet-width) {
+        font-size: rem(32);
     }
 }
 
@@ -67,5 +76,25 @@
 
     &__icon {
         font-size: rem(26);
+    }
+}
+
+.swiper-pagination {
+    bottom: rem(40) !important;
+
+    &-bullet {
+        width: rem(12) !important;
+        height: rem(12) !important;
+        background: white !important;
+        border: rem(1) solid $green !important;
+        opacity: 1 !important;
+
+        &-active {
+            background: $green !important;
+        }
+    }
+
+    @include breakpoint-max($mobile-width) {
+        bottom: rem(25) !important;
     }
 }

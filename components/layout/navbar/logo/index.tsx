@@ -6,7 +6,7 @@ const Logo = () => {
     return (
         <div className={styles.logo}>
             <Link href="/">
-                <Image src="/img/pj_logo_web_new.png" fill alt="logo" />
+                <Image src="/img/pj_logo_web_new.png" fill alt="PapaJohns logo" />
             </Link>
         </div>
     )

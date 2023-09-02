@@ -1,7 +1,7 @@
 import axios from "axios";
 import { FilterProps } from "@/types";
 
-const API = axios.create({ baseURL: process.env.API_URL });
+export const API = axios.create({ baseURL: process.env.BASE_URL });
 
 export async function fetchProducts(filters: FilterProps) {
     const { category, _limit, q, slug } = filters;
@@ -10,11 +10,17 @@ export async function fetchProducts(filters: FilterProps) {
 
     if (category !== "all") url = `?category=${category}`
 
-    // if (q !== "") url = `?q=${q}`
-    console.log(slug + url);
-
-
     const res = await API.get(slug + url);
 
     return res;
+}
+
+export async function fetchCampaigns() {
+    const { data } = await API.get("campaigns");
+    return data;
+}
+
+export async function fetchCampaign(slug: string) {
+    const { data } = await API.get(`campaigns?id=${slug}`);
+    return data[0];
 }

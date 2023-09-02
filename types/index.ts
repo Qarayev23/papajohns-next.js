@@ -14,29 +14,20 @@ export interface MenuPageProps {
   }
 }
 
-export interface PapadiasFilterProps {
-  _limit?: number;
-  q?: string;
-}
-
-export interface PapadiasPageProps {
-  searchParams: PapadiasFilterProps;
-}
-
-export interface Root {
+export interface RootProductsProps {
   length: number;
   map: any;
-  pizzas: PizzasProps[]
+  products: ProductsProps[]
 }
 
-export interface PizzasProps {
+export interface ProductsProps {
   id: number
   name: string
   img: string
   category?: string
-  ingredients: string
-  price: any,
-  options: string[]
+  ingredients?: string
+  price?: any,
+  options?: string[]
 }
 
 export interface Price {
@@ -66,5 +57,18 @@ export interface LinkProps {
 export interface ProductDetailProps {
   isOpen: boolean;
   closeModal: () => void;
-  data: PizzasProps;
+  data: ProductsProps;
+}
+
+export interface RootCampaignProps {
+  map: any;
+  campaigns: CampaignProps[]
+}
+
+export interface CampaignProps {
+  id: number
+  img: string
+  title: string
+  description: string
+  text: string
 }

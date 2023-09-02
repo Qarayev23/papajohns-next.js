@@ -1,8 +1,19 @@
-import Products from '@/components/products/products';
+import Products from '@/components/products';
 import { MenuPageProps } from "@/types";
-import ShowMore from '@/components/showMore/showMore';
+import ShowMore from '@/components/showMore';
 import ProductCategory from '@/components/productCategory';
 import { fetchProducts } from '@/utils/api';
+import type { Metadata } from 'next'
+
+type Props = {
+  params: { slug: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: `Papa Johns | ${params.slug}`,
+  }
+}
 
 const Page = async ({ searchParams, params }: MenuPageProps) => {
   const res = await fetchProducts({
