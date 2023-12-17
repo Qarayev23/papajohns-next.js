@@ -3,6 +3,7 @@ import styles from './promoDetail.module.scss'
 import { fetchCampaign } from '@/utils/api'
 import { CampaignProps } from '@/types';
 import type { Metadata } from 'next'
+import { redirect } from 'next/navigation';
 
 type Props = {
     params: { slug: string }
@@ -24,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <div className="g-container">
                 <div className={styles.campaign__detail}>
                     <div className={styles.campaign__detail__img}>
-                        <Image src={data.img} layout="fill" alt={data.title} />
+                        <Image src={data.img} fill sizes="(max-width: 768px) 100vw, 490px" alt={data.title} />
                     </div>
                     <div className={styles.campaign__detail__content}>
                         <h1 className='g-title mb-9'>{data.title}</h1>

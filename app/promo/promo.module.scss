@@ -42,7 +42,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    @include breakpoint-max($tablet-width) {
+    @include breakpoint-max($mobile-width) {
         grid-template-columns: repeat(1, 1fr);
     }
 }

@@ -1,4 +1,5 @@
 'use client'
+
 import { ProductDetailProps } from "@/types";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";

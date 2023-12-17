@@ -14,12 +14,6 @@ export interface MenuPageProps {
   }
 }
 
-export interface RootProductsProps {
-  length: number;
-  map: any;
-  products: ProductsProps[]
-}
-
 export interface ProductsProps {
   id: number
   name: string
@@ -34,12 +28,6 @@ export interface Price {
   small: number
   middle: number
   big: number
-}
-
-export interface ShowMoreProps {
-  pageNumber: number;
-  isNext: boolean;
-  isEqual: boolean;
 }
 
 export interface ButtonProps {

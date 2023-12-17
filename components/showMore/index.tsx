@@ -1,26 +1,25 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ShowMoreProps } from "@/types";
 import Button from "../button";
 
-const ShowMore = ({ pageNumber, isNext, isEqual }: ShowMoreProps) => {
+const ShowMore = ({ isNext }: { isNext: boolean }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    const newLimit = (pageNumber + 1) * 8;
     const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set("_limit", newLimit.toString());
+    const limit = searchParams.get("_limit");
+    searchParams.set("_limit", limit ? (Number(limit) + 8).toString() : "16");
     const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
     router.push(newPathname, { scroll: false });
   };
 
   return (
     <div className="flex justify-center my-8">
-      {!isNext && !isEqual && (
+      {isNext && (
         <Button handleClick={handleClick}>Daha çox</Button>
       )}
-    </div >
+    </div>
   );
 };
 

@@ -1,26 +1,37 @@
-import axios from "axios";
 import { FilterProps } from "@/types";
-
-export const API = axios.create({ baseURL: process.env.BASE_URL });
+import { notFound } from "next/navigation";
 
 export async function fetchProducts(filters: FilterProps) {
     const { category, _limit, q, slug } = filters;
 
-    let url = `?_limit=${_limit}&q=${q}`
+    let params = `?_limit=${_limit}&q=${q}`
 
-    if (category !== "all") url = `?category=${category}`
+    if (category !== "all") params = `?category=${category}`
 
-    const res = await API.get(slug + url);
+    const res = await fetch(`${process.env.BASE_URL}${slug}${params}`);
 
-    return res;
+    const totalCount = res.headers.get("x-total-count");
+    const data = await res.json();
+
+    if (res.ok) return { data, totalCount };
+
+    notFound();
 }
 
 export async function fetchCampaigns() {
-    const { data } = await API.get("campaigns");
-    return data;
+    const res = await fetch(`${process.env.BASE_URL}campaigns`);
+    const data = await res.json();
+
+    if (res.ok) return data;
+
+    notFound();
 }
 
 export async function fetchCampaign(slug: string) {
-    const { data } = await API.get(`campaigns?id=${slug}`);
-    return data[0];
+    const res = await fetch(`${process.env.BASE_URL}campaigns/${slug}`);
+    const data = await res.json();
+
+    if (res.ok) return data;
+
+    notFound();
 }

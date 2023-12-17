@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const Page = async ({ searchParams, params }: MenuPageProps) => {
-  const res = await fetchProducts({
+  const { data, totalCount } = await fetchProducts({
     category: searchParams.category || "all",
     _limit: searchParams._limit || 8,
     q: searchParams.q || "",
@@ -26,12 +26,8 @@ const Page = async ({ searchParams, params }: MenuPageProps) => {
   return (
     <main>
       {params.slug === "pizza" && <ProductCategory />}
-      <Products data={res.data} />
-      <ShowMore
-        pageNumber={(searchParams._limit || 8) / 8}
-        isNext={res.headers["x-total-count"] ? (searchParams._limit || 8) > res.headers["x-total-count"] : true}
-        isEqual={res.headers["x-total-count"] ? (searchParams._limit || 8) === res.headers["x-total-count"] : true}
-      />
+      <Products data={data} />
+      <ShowMore isNext={(searchParams._limit || 8) < Number(totalCount)} />
     </main>
   )
 }
